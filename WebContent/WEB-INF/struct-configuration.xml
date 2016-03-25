@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" 
+	"http://struts.apache.org/dtds/struts-config_1_2.dtd">
+	<struts-config>
+		<form-beans>
+			<form-bean name="helloForm" type="form.HelloForm"></form-bean>
+		</form-beans>
+		<action-mappings>
+			<action attribute="helloForm" input="/form/hello.jsp" 
+					name="helloForm" path="/hello" scope="request" 
+					type="action.HelloAction">
+				<forward name="success" path="/form/helloSuccess.jsp" />
+				<forward name="fail" path="/form/helloFail.jsp" redirect="true"></forward>
+			</action>
+		</action-mappings>
+		<message-resources parameter="ApplicationResources"></message-resources>
+	</struts-config>
